@@ -14,6 +14,13 @@ set foldmethod=indent
 set foldnestmax=3
 set foldlevel=99
 
+" defaults
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+
 "enable folding with spacebar
 nnoremap <space> za
 
@@ -26,6 +33,9 @@ nnoremap <C-H> <C-W><C-H> " CTRL-H
 " system clipboard
 set clipboard=unnamed
 
+" start in insert mode
+startinsert
+
 " PEP8 conformance
 au BufNewFile, BufRead *.py
  \ set tabstop=4
@@ -36,14 +46,20 @@ au BufNewFile, BufRead *.py
  \ set autoindent
  \ set fileformat=unix
 
+" catch unecessary whitespace
+au BufNewFile, BufRead *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 " full stack
 au BufNewFile, BufRead *.js, *.html, *.css
  \ set tabstop=2
  \ set softtabstop=2
  \ set shiftwidth=2
+ \ set expandtab
+ \ set autoindent
 
 " catch unecessary whitespace
-au BufNewFile, BufRead *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufNewFile, BufRead *.js,*.css,*.php,*.html match BadWhitespace /\s\+$/
+
 
 " encodings
 set encoding=utf-8
