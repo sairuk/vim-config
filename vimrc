@@ -19,7 +19,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set autoindent
+"set autoindent
 
 "enable folding with spacebar
 nnoremap <space> za
@@ -34,7 +34,7 @@ nnoremap <C-H> <C-W><C-H> " CTRL-H
 set clipboard=unnamed
 
 " start in insert mode
-startinsert
+" startinsert
 
 " PEP8 conformance
 au BufNewFile, BufRead *.py
@@ -83,12 +83,17 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " ...
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" 80cols (79 really) from
+" https://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%80v.\+/
 
 
 
