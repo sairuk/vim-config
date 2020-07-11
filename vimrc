@@ -108,6 +108,12 @@ au BufNewFile, BufRead *.{yml,yaml}
  \ set foldmethod=indent
  \ match BadWhitespace /\s\+$/
 
+" ### MARKDOWN ###############################################################
+" #
+
+au BufNewFile,BufFilePre,BufRead *.{md,markdown,mdown,mkd,mkdn,mdwn}
+ \ set filetype=markdown
+
 
 " ### VUNDLE #################################################################
 " #
