@@ -36,7 +36,10 @@ set laststatus=2
 
 
 " ### LOOK ###################################################################
-" set background-dark
+set background=dark
+let g:solarized_termcolors=256
+" disabled see: https://github.com/altercation/vim-colors-solarized/issues/218
+colorscheme solarized
 
 " ### KEYBOARD ###############################################################
 " #
