@@ -1,5 +1,10 @@
 " ### GLOBAL SETTINGS" ########################################################
 " #
+" encoding
+scriptencoding utf-8
+set encoding=utf-8
+
+" general
 set shortmess=at
 set noai
 set number
@@ -28,7 +33,13 @@ syntax enable
 set textwidth=79
 
 " whitespace chars
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+" centos7 vim kicks up a stink about listchars is unknown whereas its happy
+" with the shorthand so we'll run with that for everything
+if ("patch-7.4.710")
+  set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+else
+  set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+endif
 set list
 
 " always display the status line
@@ -56,7 +67,7 @@ nnoremap <C-L> <C-W><C-L> " CTRL-L
 nnoremap <C-H> <C-W><C-H> " CTRL-H
 
 nnoremap <C-G> :hsplit ~/.vim/docs/vim-cheat-sheet<CR>
-nnoremap <C-L> :set list!<CR>
+nnoremap <C-P> :set list!<CR>
 
 " system clipboard
 set clipboard=unnamed
