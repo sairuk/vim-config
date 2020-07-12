@@ -39,7 +39,7 @@ set laststatus=2
 set background=dark
 let g:solarized_termcolors=256
 " disabled see: https://github.com/altercation/vim-colors-solarized/issues/218
-colorscheme solarized
+"colorscheme solarized
 
 " ### KEYBOARD ###############################################################
 " #
@@ -54,6 +54,9 @@ nnoremap <C-J> <C-W><C-J> " CTRL-J
 nnoremap <C-K> <C-W><C-K> " CTRL-K
 nnoremap <C-L> <C-W><C-L> " CTRL-L
 nnoremap <C-H> <C-W><C-H> " CTRL-H
+
+nnoremap <C-G> :hsplit ~/.vim/docs/vim-cheat-sheet<CR>
+nnoremap <C-L> :set list!<CR>
 
 " system clipboard
 set clipboard=unnamed
