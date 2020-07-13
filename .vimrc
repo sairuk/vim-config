@@ -34,12 +34,19 @@ set textwidth=79
 
 " whitespace chars
 " centos7 vim kicks up a stink about listchars is unknown whereas its happy
-" with the shorthand so we'll run with that for everything
+" with the shorthand so we'll run with that for everything and patch-7.4.x 
+" doesn't work for >= 7.4?
 if ("patch-7.4.710")
   set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 else
   set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 endif
+
+" wasn't active for v8.2 so activate the line, be nice if we could alias this
+if (v:version > 704)
+  set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+endif
+
 set list
 
 " always display the status line
