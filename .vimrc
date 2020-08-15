@@ -47,7 +47,7 @@ if (v:version > 704)
   set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 endif
 
-set list
+set nolist
 
 " always display the status line
 set laststatus=2
@@ -56,8 +56,9 @@ set laststatus=2
 " ### LOOK ###################################################################
 set background=dark
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 " disabled see: https://github.com/altercation/vim-colors-solarized/issues/218
-"colorscheme solarized
+colorscheme solarized8
 
 " ### KEYBOARD ###############################################################
 " #
@@ -169,11 +170,11 @@ filetype plugin indent on    " required
 " #
 " ## NERDTree - 
 " open by default
-autocmd StdinReadPre * let s:std_in=1
+" autocmd StdinReadPre * let s:std_in=1
 " open NT if no files are specified
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " don't open if this a saved session
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
 " open on a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " close nerdtree with last file
