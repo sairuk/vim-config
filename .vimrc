@@ -29,8 +29,8 @@ set foldlevel=99
 " encodings
 set encoding=utf-8
 
+" allow syntax highlighting
 syntax enable
-set textwidth=79
 
 " whitespace chars
 " centos7 vim kicks up a stink about listchars is unknown whereas its happy
@@ -47,18 +47,22 @@ if (v:version > 704)
   set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 endif
 
+" disable no printable char display, toggle with ctrl-p
 set nolist
 
 " always display the status line
 set laststatus=2
 
+" swap files
+set swapfile
+set dir=~/.vim/swapfiles/
 
 " ### LOOK ###################################################################
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 " disabled see: https://github.com/altercation/vim-colors-solarized/issues/218
-colorscheme solarized8
+"colorscheme solarized8
 
 " ### KEYBOARD ###############################################################
 " #
@@ -80,9 +84,10 @@ nnoremap <C-P> :set list!<CR>
 " system clipboard
 set clipboard=unnamed
 
+" lowlight after 80c
 " 80cols (79 really) from
 " https://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight OverLength ctermbg=black ctermfg=darkgrey guibg=#592929
 match OverLength /\%80v.\+/
 
 " catch unecessary whitespace
