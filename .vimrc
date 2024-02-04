@@ -7,7 +7,7 @@ set encoding=utf-8
 " general
 set shortmess=at
 set noai
-set number
+set relativenumber
 set ruler
 
 " disable the mouse
@@ -87,7 +87,7 @@ set clipboard=unnamed
 " lowlight after 80c
 " 80cols (79 really) from
 " https://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
-highlight OverLength ctermbg=black ctermfg=darkgrey guibg=#592929
+highlight OverLength ctermbg=black ctermfg=white
 match OverLength /\%80v.\+/
 
 " catch unecessary whitespace
@@ -116,9 +116,9 @@ au BufNewFile, BufRead *.{py,pyw}
 " #
 " full stack
 au BufNewFile, BufRead *.{js,html,css}
- \ set tabstop=2
- \ set softtabstop=2
- \ set shiftwidth=2
+ \ set tabstop=4
+ \ set softtabstop=4
+ \ set shiftwidth=4
  \ set expandtab
  \ set autoindent
  \ match BadWhitespace /\s\+$/
@@ -177,9 +177,9 @@ filetype plugin indent on    " required
 " open by default
 " autocmd StdinReadPre * let s:std_in=1
 " open NT if no files are specified
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " don't open if this a saved session
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
 " open on a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " close nerdtree with last file
