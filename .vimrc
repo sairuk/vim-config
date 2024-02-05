@@ -7,8 +7,10 @@ set encoding=utf-8
 " general
 set shortmess=at
 set noai
-set relativenumber
 set ruler
+
+" hybrid line numbers
+set number relativenumber
 
 " disable the mouse
 set mouse=
@@ -81,7 +83,13 @@ nnoremap <C-H> <C-W><C-H> " CTRL-H
 nnoremap <C-G> :hsplit ~/.vim/docs/vim-cheat-sheet<CR>
 nnoremap <C-P> :set list!<CR>
 
-" system clipboard
+" number modes (make this cycle on a single key)
+nnoremap <F4> :set number relativenumber<CR>
+nnoremap <F5> :set nonumber norelativenumber number<CR>
+nnoremap <F6> :set nonumber norelativenumber relativenumber<CR>
+nnoremap <F7> :set nonumber norelativenumber<CR>
+
+" system clipboard ????
 set clipboard=unnamed
 
 " lowlight after 80c
