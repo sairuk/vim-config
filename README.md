@@ -28,10 +28,12 @@ git clone --recurse-submodules https://github.com/sairuk/vim-config.git
 * [iceberg](https://github.com/cocopon/iceberg.vim) current theme
 
 ## plugins:
-* [Nerdtree](https://github.com/preservim/nerdtree.git) A tree explorer plugin for navigating the filesystem (toggle Ctrl-N)
+* [nerdtree](https://github.com/preservim/nerdtree.git) A tree explorer plugin for navigating the filesystem (toggle Ctrl-N)
 * [vimwiki](https://github.com/vimwiki/vimwiki.git) wiki w/markdown support
 * [ale](https://github.com/dense-analysis/ale.git) ale replacing syntastic
 * [auto-pairs](https://github.com/jiangmiao/auto-pairs) pair up things that make sense
 * [indentLine](https://github.com/Yggdroot/indentLine) displays indentation
 * [tagbar](https://github.com/preservim/tagbar) outline viewer
 * [vim-polyglot](https://github.com/sheerun/vim-polyglot) language packs
+* [csv](https://github.com/chrisbra/csv.vim) render csv format files 
+* [autocomplpop](https://github.com/vim-scripts/AutoComplPop) auto complete popup menu

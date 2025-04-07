@@ -75,6 +75,7 @@ set dir=~/.vim/swapfiles/
 " @@LOOK
 set background=dark
 colorscheme iceberg
+set colorcolumn=80
 
 " @@KEYBOARD
 " toggle paste mode
@@ -171,6 +172,10 @@ augroup Binary
   au BufWritePost *.{bin,ppf} set nomod | endif
 augroup END
 
+augroup CSV
+  au! BufRead,BufNewFile *.csv,*.dat	setfiletype csv
+augroup END
+
 " @@ PACKAGES
 set nocompatible
 
@@ -197,6 +202,23 @@ nmap <C-I> :IndentLinesToggle<CR>
 let g:indentLine_setColors=0
 let g:indentLine_char_list=['|', '¦', '┆', '┊']
 
+" autocomplop
+set complete+="ispell"
+set completeopt=menuone,longest
+set shortmess+=c
+
+" https://www.youtube.com/watch?v=2f8h45YR494 
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" :"<Up>"
+
+inoremap <expr> <Right> pumvisible() ? "<C-y>" :"<Right>"
+inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
+
+inoremap <expr> <Left> pumvisible() ? "<C-e>" :"<Left>"
+
+
+
+
 " NERDTree -
 nmap <F7> :NERDTreeToggle<CR>
 
@@ -207,6 +229,7 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowLineNumbers=0
 let NERDTreeWinPos="left"
 let NERDTreeWinSize=31
+let NERDTreeFileLines=1
 
 " open by default
 " autocmd StdinReadPre * let s:std_in=1
