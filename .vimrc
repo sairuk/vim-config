@@ -62,12 +62,15 @@ endif
 " disable no printable char display, toggle with ctrl-p
 set nolist
 
-" always display the status line
+" always display the status line<Down>
 set laststatus=2
 
 " swap files
 set noswapfile
 set dir=~/.vim/swapfiles/
+
+" spellcheck
+"set spellfile
 
 " @@LOOK
 set background=dark
@@ -86,7 +89,10 @@ nnoremap <C-K> <C-W><C-K> " CTRL-K
 nnoremap <C-L> <C-W><C-L> " CTRL-L
 nnoremap <C-H> <C-W><C-H> " CTRL-H
 
-nnoremap <nowait><silent><leader>c :new ~/.vim/docs/vim-cheat-sheet<CR>
+nnoremap <nowait><silent><leader>n :new ~/.vim/docs/vim.notes<CR>
+nnoremap <nowait><silent><leader>c :new ~/.vimrc<CR>
+
+nnoremap <nowait><silent><leader>s :set spell spelllang=en_au <CR>
 nnoremap <nowait><silent><leader>p :ToggleWhiteSpace<CR>
 nnoremap <nowait><silent><leader><F5> :set number relativenumber<CR>
 nnoremap <nowait><silent><leader><F6> :set nonumber norelativenumber<CR>
@@ -94,7 +100,7 @@ nnoremap <nowait><silent><leader><F6> :set nonumber norelativenumber<CR>
 " nnoremap <F6> :set nonumber norelativenumber relativenumber<CR>
 nnoremap <nowait><silent><leader><F9> :ToggleMouseMode<CR>
 " reload config
-nnoremap <nowait><silent><F12> :so %<CR>
+"nnoremap <nowait><silent><F12> :so %<CR>
 
 " system clipboard ????
 set clipboard=unnamed
