@@ -152,6 +152,20 @@ au BufNewFile, BufRead *.{yml,yaml}
 au BufNewFile,BufFilePre,BufRead *.{md,markdown,mdown,mkd,mkdn,mdwn}
  \ set filetype=markdown
 
+" ### BINARY #################################################################
+" #
+" vim -b : edit binary using xxd-format!
+augroup Binary
+  au!
+  au BufReadPre  *.{bin,ppf} let &bin=1
+  au BufReadPost *.{bin,ppf} if &bin | %!xxd
+  au BufReadPost *.{bin,ppf} set ft=xxd | endif
+  au BufWritePre *.{bin,ppf} if &bin | %!xxd -r
+  au BufWritePre *.{bin,ppf} endif
+  au BufWritePost *.{bin,ppf} if &bin | %!xxd
+  au BufWritePost *.{bin,ppf} set nomod | endif
+augroup END
+
 
 " ### VUNDLE #################################################################
 " #

@@ -1,18 +1,9 @@
-[submodule ".vim/bundle/ansible-vim"]
-	path = .vim/bundle/ansible-vim
-	url = https://github.com/pearofducks/ansible-vim.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+[submodule ".vim/pack/plugins/nerdtree"]
+	path = .vim/pack/plugins/nerdtree
 	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/vim-syntastic/syntastic.git
-[submodule ".vim/bundle/vim-flake8"]
-	path = .vim/bundle/vim-flake8
-	url = https://github.com/nvie/vim-flake8.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule ".vim/pack/plugins/vimwiki"]
+	path = .vim/pack/plugins/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+[submodule ".vim/pack/plugins/ale"]
+	path = .vim/pack/plugins/ale
+	url = https://github.com/dense-analysis/ale.git
