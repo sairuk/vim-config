@@ -1,9 +1,9 @@
-[submodule ".vim/pack/plugins/nerdtree"]
-	path = .vim/pack/plugins/nerdtree
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/pack/plugins/vimwiki"]
-	path = .vim/pack/plugins/vimwiki
+[submodule ".vim/pack/plugins/start/vimwiki"]
+	path = .vim/pack/plugins/start/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
-[submodule ".vim/pack/plugins/ale"]
-	path = .vim/pack/plugins/ale
+[submodule ".vim/pack/plugins/start/ale"]
+	path = .vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale.git
