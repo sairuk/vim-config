@@ -1,5 +1,4 @@
-" ### GLOBAL SETTINGS" ########################################################
-" #
+" @@GLOBAL SETTINGS
 " encoding
 scriptencoding utf-8
 set encoding=utf-8
@@ -13,7 +12,14 @@ set ruler
 set number relativenumber
 
 " disable the mouse
-set mouse=
+set mouse=a
+
+" terminal
+nmap <F9> :term<CR>
+set termwinsize=12x0
+
+" split behaviour
+set splitbelow
 
 " defaults
 set tabstop=2
@@ -33,6 +39,10 @@ set encoding=utf-8
 
 " allow syntax highlighting
 syntax enable
+
+" search
+set incsearch  " Enable incremental search
+set hlsearch   " Enable highlight search
 
 " whitespace chars
 " centos7 vim kicks up a stink about listchars is unknown whereas its happy
@@ -56,38 +66,35 @@ set nolist
 set laststatus=2
 
 " swap files
-set swapfile
+set noswapfile
 set dir=~/.vim/swapfiles/
 
-" ### LOOK ###################################################################
+" @@LOOK
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" disabled see: https://github.com/altercation/vim-colors-solarized/issues/218
-"colorscheme solarized8
+colorscheme iceberg
 
-" ### KEYBOARD ###############################################################
-" #
+" @@KEYBOARD
 " toggle paste mode
-set pastetoggle=<F3>
+set pastetoggle=<F4>
 
 "enable folding with spacebar
-nnoremap <space> za
+nnoremap <leader><space> za
 
 " split navigation
-nnoremap <C-J> <C-W><C-J> " CTRL-J
+nnoremap <C-J> <C-W><C-J> " CTRL-J 
 nnoremap <C-K> <C-W><C-K> " CTRL-K
 nnoremap <C-L> <C-W><C-L> " CTRL-L
 nnoremap <C-H> <C-W><C-H> " CTRL-H
 
-nnoremap <C-G> :hsplit ~/.vim/docs/vim-cheat-sheet<CR>
-nnoremap <C-P> :set list!<CR>
-
-" number modes (make this cycle on a single key)
-nnoremap <F4> :set number relativenumber<CR>
-nnoremap <F5> :set nonumber norelativenumber number<CR>
-nnoremap <F6> :set nonumber norelativenumber relativenumber<CR>
-nnoremap <F7> :set nonumber norelativenumber<CR>
+nnoremap <nowait><silent><leader>c :new ~/.vim/docs/vim-cheat-sheet<CR>
+nnoremap <nowait><silent><leader>p :ToggleWhiteSpace<CR>
+nnoremap <nowait><silent><leader><F5> :set number relativenumber<CR>
+nnoremap <nowait><silent><leader><F6> :set nonumber norelativenumber<CR>
+" nnoremap <F5> :set nonumber norelativenumber number<CR>
+" nnoremap <F6> :set nonumber norelativenumber relativenumber<CR>
+nnoremap <nowait><silent><leader><F9> :ToggleMouseMode<CR>
+" reload config
+nnoremap <nowait><silent><F12> :so %<CR>
 
 " system clipboard ????
 set clipboard=unnamed
@@ -102,8 +109,8 @@ match OverLength /\%80v.\+/
 au BufNewFile, BufRead *.c,*.h 
  \ match BadWhitespace /\s\+$/
 
-" ### PYTHON #################################################################
-" #
+" @@@LANGUAGES
+" python
 " enable syntax highlighting
 let python_highlight_all=1
 
@@ -120,9 +127,7 @@ au BufNewFile, BufRead *.{py,pyw}
  \ match BadWhitespace /\s\+$/
 
 
-" ### WEB ####################################################################
-" #
-" full stack
+" web full stack
 au BufNewFile, BufRead *.{js,html,css}
  \ set tabstop=4
  \ set softtabstop=4
@@ -131,10 +136,7 @@ au BufNewFile, BufRead *.{js,html,css}
  \ set autoindent
  \ match BadWhitespace /\s\+$/
 
-
-" ### YAML ###################################################################
-" #
-"
+" yaml
 au BufNewFile, BufRead *.{yml,yaml} 
  \ set filetype=yaml 
  \ set tabstop=2
@@ -146,14 +148,11 @@ au BufNewFile, BufRead *.{yml,yaml}
  \ set foldmethod=indent
  \ match BadWhitespace /\s\+$/
 
-" ### MARKDOWN ###############################################################
-" #
-
+" markdown
 au BufNewFile,BufFilePre,BufRead *.{md,markdown,mdown,mkd,mkdn,mdwn}
  \ set filetype=markdown
 
-" ### BINARY #################################################################
-" #
+" bin
 " vim -b : edit binary using xxd-format!
 augroup Binary
   au!
@@ -166,36 +165,43 @@ augroup Binary
   au BufWritePost *.{bin,ppf} set nomod | endif
 augroup END
 
-
-" ### VUNDLE #################################################################
-" #
+" @@ PACKAGES
 set nocompatible
-filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" vimwiki
+filetype plugin on
+syntax on
+let g:vimwiki_global_ext = 0
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': 'md', 'path': '~/vimwiki'}]
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" vim-polyglot
+let g:polyglot_disabled = ['autoindent']
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-Plugin 'preservim/nerdtree'            " https://catonmat.net/vim-plugins-nerdtree-vim
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'tpope/vim-fugitive'
-Plugin 'pearofducks/ansible-vim'       " https://github.com/pearofducks/ansible-vim 
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" ...
+" autopairs
+let g:AutoPairsShortcutToggle = '<C-1>'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus=1                       " focus the panel when opening it
+let g:tagbar_autoshowtag=1                     " highlight the active tag
+let g:tagbar_position = 'botright vertical'    " vertical and place on right
 
-" ### PLUGINS" ################################################################
-" #
-" ## NERDTree - 
+" indentline
+nmap <C-I> :IndentLinesToggle<CR>
+let g:indentLine_setColors=0
+let g:indentLine_char_list=['|', '¦', '┆', '┊']
+
+" NERDTree -
+nmap <F7> :NERDTreeToggle<CR>
+
+let NERDTreeMinimalUI=1
+let NERDTreeMinimalMenu=1
+let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
+let NERDTreeShowLineNumbers=0
+let NERDTreeWinPos="left"
+let NERDTreeWinSize=31
+
 " open by default
 " autocmd StdinReadPre * let s:std_in=1
 " open NT if no files are specified
@@ -207,5 +213,3 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close nerdtree with last file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" open with ctrl-n
-map <C-n> :NERDTreeToggle<CR>
