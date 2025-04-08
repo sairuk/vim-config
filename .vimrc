@@ -83,6 +83,7 @@ inoremap <expr> <Left> pumvisible() ? "<C-e>" :"<Left>"
 
 " @@LOOK
 set background=dark
+set termguicolors
 colorscheme iceberg
 set colorcolumn=80
 
