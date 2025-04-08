@@ -36,4 +36,3 @@ git clone --recurse-submodules https://github.com/sairuk/vim-config.git
 * [tagbar](https://github.com/preservim/tagbar) outline viewer
 * [vim-polyglot](https://github.com/sheerun/vim-polyglot) language packs
 * [csv](https://github.com/chrisbra/csv.vim) render csv format files 
-* [autocomplpop](https://github.com/vim-scripts/AutoComplPop) auto complete popup menu

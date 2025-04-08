@@ -72,6 +72,15 @@ set dir=~/.vim/swapfiles/
 " spellcheck
 "set spellfile
 
+" omnicompletion
+set omnifunc=syntaxcomplete#Complete
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" :"<Up>"
+inoremap <expr> <Right> pumvisible() ? "<C-y>" :"<Right>"
+"inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
+inoremap <expr> <Left> pumvisible() ? "<C-e>" :"<Left>"
+
+
 " @@LOOK
 set background=dark
 colorscheme iceberg
@@ -201,23 +210,6 @@ let g:tagbar_position = 'botright vertical'    " vertical and place on right
 nmap <C-I> :IndentLinesToggle<CR>
 let g:indentLine_setColors=0
 let g:indentLine_char_list=['|', '¦', '┆', '┊']
-
-" autocomplop
-set complete+="ispell"
-set completeopt=menuone,longest
-set shortmess+=c
-
-" https://www.youtube.com/watch?v=2f8h45YR494 
-inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
-inoremap <expr> <Up> pumvisible() ? "<C-p>" :"<Up>"
-
-inoremap <expr> <Right> pumvisible() ? "<C-y>" :"<Right>"
-inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
-
-inoremap <expr> <Left> pumvisible() ? "<C-e>" :"<Left>"
-
-
-
 
 " NERDTree -
 nmap <F7> :NERDTreeToggle<CR>
