@@ -10,9 +10,6 @@
 [submodule ".vim/pack/plugins/start/vim-polyglot"]
 	path = .vim/pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule ".vim/pack/plugins/start/auto-pairs"]
-	path = .vim/pack/plugins/start/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule ".vim/pack/plugins/start/tagbar"]
 	path = .vim/pack/plugins/start/tagbar
 	url = https://github.com/preservim/tagbar.git
