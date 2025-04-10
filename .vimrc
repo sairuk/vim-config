@@ -235,3 +235,16 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close nerdtree with last file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'m',
+                \ 'Staged'    :'+',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'r',
+                \ 'Unmerged'  :'=',
+                \ 'Deleted'   :'x',
+                \ 'Dirty'     :'~',
+                \ 'Ignored'   :'i',
+                \ 'Clean'     :'c',
+                \ 'Unknown'   :'?',
+                \ }
