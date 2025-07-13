@@ -16,7 +16,7 @@ set mouse=a
 
 " terminal
 nmap <F9> :term<CR>
-set termwinsize=12x0
+set termwinsize=24x0
 
 " split behaviour
 set splitbelow
@@ -59,7 +59,7 @@ if (v:version > 704)
   set lcs=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 endif
 
-" disable no printable char display, toggle with ctrl-p
+" disable non-printable char display, toggle with ctrl-p
 set nolist
 
 " always display the status line<Down>
@@ -195,11 +195,14 @@ syntax on
 let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': 'md', 'path': '~/vimwiki'}]
 
+" ale
+nmap <F3> :ALEToggle<CR>
+
 " vim-polyglot
 let g:polyglot_disabled = ['autoindent']
 
 " autopairs
-let g:AutoPairsShortcutToggle = '<C-1>'
+" let g:AutoPairsShortcutToggle = '<C-1>'
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
